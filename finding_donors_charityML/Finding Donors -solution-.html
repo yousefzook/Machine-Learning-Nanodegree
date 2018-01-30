@@ -12847,8 +12847,10 @@ Testing set has 9045 samples.
 <br/>
 ... <em> Disadv: It can overfit so it needs parameters tuning. May return a local optimal instead of the global optimal.
 <br/>
-... </em> As I mentioned this model is a good canditate because our data don't have large number of dimensions which make the learning fast for decision tree model also the query is logarithmic</li>
-<li>Support Vector Machines (SVM)
+... </em> As I mentioned this model is a good canditate because our data don't have large number of dimensions which make the learning fast for decision tree model also the query is logarithmic
+<br/>
+-&gt;for further reading about decision trees <a href="http://scikit-learn.org/stable/modules/tree.html">press here</a></li>
+<li><p>Support Vector Machines (SVM)
 <br/>
 ... <em> SVM can be used in classification apps such as face detection and handwriting recognition.
 <br/>
@@ -12856,8 +12858,11 @@ Testing set has 9045 samples.
 <br/>
 ... <em> Disadv: Can be overfitted - needs parameters tuning. Doesn't do well in noisy data.
 <br/>
-... </em> It can be used here as the data isn't noisy and also we can manipulate parameters to find the best fit.</li>
-<li>Ensemble Methods
+... </em> It can be used here as the data isn't noisy and also we can manipulate parameters to find the best fit.
+<br/>
+-&gt;for further reading about support vector machines <a href="http://scikit-learn.org/stable/modules/svm.html">press here</a> and for SVC <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">press here</a></p>
+</li>
+<li><p>Ensemble Methods
 <br/>
 ... <em> Ensemble Methods can be used in recommondations systems, as netflix comptetion winners did.
 <br/>
@@ -12865,7 +12870,10 @@ Testing set has 9045 samples.
 <br/>
 ... <em> Disadv: Sequential, not time efficient.
 <br/>
-... </em> Our data can be learned using ensemble boosting well as it has descretied values mixed with continous values.</li>
+... </em> Our data can be learned using ensemble boosting well as it has descretied values mixed with continous values.
+<br/>
+-&gt;for further reading about ensemble methods <a href="http://scikit-learn.org/stable/modules/ensemble.html">press here</a> and for GradientBoostingClassifier <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier">press here</a></p>
+</li>
 </ol>
 
 </div>
@@ -13058,7 +13066,7 @@ GradientBoostingClassifier trained on 36177 samples.
 <br/>
 As shown in the graph above, Ensemble Boosting method has the highest F-score on the 100% of training set. 
 Also the query time is almost = 0 and beat SVC in training time with time almost equal to 8.3% of SVC time.
-Decision tree made the best training and query time but the worst accuracy and F-score among the models, SVC is good at accuracy but it is time inefficient as shown. So We can use best calssifier "GradientBoostingClassifier" which is suitable alot for the data.</p>
+Decision tree made the best training and query time but the worst accuracy and F-score among the models, SVC is good at accuracy but it is time inefficient as shown. So We can use best calssifier "GradientBoostingClassifier" which is suitable alot for the data as our data is mixed type data which has many features and Boosting Classifier is good with this case. Also this is proved from the testing data as Boosting Classifier gives the best accuracy and f_score on them.</p>
 
 </div>
 </div>
@@ -13080,9 +13088,9 @@ Decision tree made the best training and query time but the worst accuracy and F
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
 <br/> 
-Ensemble learners in general use more than 1 learner and combine them to reach the best combined model of them. Gradient Boosting is one of these learners which start with weak learner and try to make it better. This is descriped also in <a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">The Origin of Boosting</a> post. This model starts with weak classifier and iterate to train it for several time to generate at last a strong classifier. It works by giving more weights to the misclassified points and in the next iteration trys to minimize the misclassification error.
+Ensemble learners in general use more than 1 model or technique and combine them to reach the best combined model of them. Gradient Boosting is one of these learners which start with naive classifier which split our data badly at first and give alot of errors, and after that try to make it better. This is descriped also in <a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">The Origin of Boosting</a> post. This model starts with weak classifier -a model that gives us bad results- and repeat the process that it do on data to train it and make the model better for several time to generate at last a model that minimize the number of incorrect results. It works by trying to fix the misclassified points and care for them more than the correct ones, and in the next iteration trys to minimize the misclassification error.
 <br/>
-So on our data GradientBoostingClassifier finds a strong classifier for the data  giving accuracy almost equal to 90% on the test data which is almost equal to accuracy of the training data.</p>
+So on our data GradientBoostingClassifier finds a good model for the data  giving correct results 90% of times.</p>
 
 </div>
 </div>
@@ -13343,7 +13351,7 @@ This model scores are better 4 time than the naive predictor at Q1.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As shown in the figure below, compared to the above question, naive country isn't from the important 5 instead age is from them and came in the 2nd level of importance, 
+<p>As shown in the figure below, compared to the above question, <code>age</code> seem to be a very important feature - 2nd most important- which I didn't expect to has influence as this. Also <code>naive country</code> isn't from the most important features. After thinking of these features it appears that all of them are make sense. And I may didn't take importance of experience into account which is indicated a lot by the <code>age</code> of the person.
 <br/>the most important 5 features are:</p>
 <ul>
 <li>Marital status</li>
