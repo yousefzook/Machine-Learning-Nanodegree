@@ -12118,10 +12118,52 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Each sample has the following percentile of each feature's mean:</p>
+<table>
+<thead><tr>
+<th>Sample number</th>
+<th>Fresh</th>
+<th>Milk</th>
+<th>Grocery</th>
+<th>Frozen</th>
+<th>Detergents_paper</th>
+<th>Delicatessen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0</td>
+<td>78 %</td>
+<td>142.5 %</td>
+<td>64.5%</td>
+<td>21.68%</td>
+<td>62.3%</td>
+<td>95.16%</td>
+</tr>
+<tr>
+<td> 1</td>
+<td>23.38%</td>
+<td>185.7%</td>
+<td>195.4%</td>
+<td>44.7%</td>
+<td>202%</td>
+<td>156.616%</td>
+</tr>
+<tr>
+<td> 2</td>
+<td>235.47%</td>
+<td>16.28%</td>
+<td>27%</td>
+<td>126.3%</td>
+<td>20.82</td>
+<td>17.7%</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>customer 0: It seems to be a resturant or a mini-market or retailer as it uses in average milk , Fresh , Delicatessen and papers.</li>
-<li>customer 1: It seems to be a grocery market or retailer as it uses alot of grocery products and milk.</li>
-<li>customer 2: It seems to be a fresh market or resturant as it uses alot of fresh products.</li>
+<li>customer 0: It seems to be a resturant or a mini-market or retailer as it uses in average milk , close to the avg in Fresh and Delicatessen.</li>
+<li>customer 1: It seems to be a grocery market , hotel or retailer as it uses alot of grocery products , milk , Detergents_paper and Delicatessen.</li>
+<li>customer 2: It seems to be a fresh market or resturant as it uses alot of fresh and frozen -i.e. above avg-  products.</li>
 </ul>
 
 </div>
@@ -12190,12 +12232,12 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fresh&#39;s score = -0.277100093282
-Milk&#39;s score = 0.219148797452
-Grocery&#39;s score = 0.601485314484
-Frozen&#39;s score = 0.283273937951
-Detergents_Paper&#39;s score = 0.71330066013
-Delicatessen&#39;s score = -12.9718212452
+<pre>Fresh&#39;s score = -0.463618867945
+Milk&#39;s score = 0.264916548557
+Grocery&#39;s score = 0.613023863688
+Frozen&#39;s score = 0.271228481332
+Detergents_Paper&#39;s score = 0.730028761677
+Delicatessen&#39;s score = -13.0534754047
 </pre>
 </div>
 </div>
@@ -12224,7 +12266,7 @@ Delicatessen&#39;s score = -12.9718212452
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h3><ul>
 <li>As shown above I tried to explore the score of each features, but for the seek of answering I will assume that I chose <em>Fresh</em> feature.</li>
-<li>Score = -0.3939599</li>
+<li>Score = -0.463618867945</li>
 <li>This feature is necessary as the score is very small and even it is -ve which indicates that this feature is hard to be predicted using the other features</li>
 </ul>
 <p><strong>Hint:</strong> the feature that we cann't ignore it the most is <em>Delicatessen</em> as it has the min score, and the feature that we can ignore the most is Detergents_Paper as it has the max score.</p>
@@ -12313,7 +12355,7 @@ Delicatessen&#39;s score = -12.9718212452
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6f1d905bd0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f13fff739d0&gt;</pre>
 </div>
 
 </div>
@@ -12358,7 +12400,7 @@ Delicatessen&#39;s score = -12.9718212452
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>It seems to me that the data isn't normally distributed as the scatter points should be approximately elliptical in shape, <a href="https://onlinecourses.science.psu.edu/stat505/book/export/html/15">according to this reference</a>. There exist some outliers as shown in all columns fro example <em>Fresh</em> feature has an outlier with high value which is the max, Delicatessen also has an outlier point which is the max value of it.</li>
+<li>It seems to me that the data isn't normally distributed as the scatter points should be approximately elliptical in shape, <a href="https://onlinecourses.science.psu.edu/stat505/book/export/html/15">according to this reference</a>. There exist some outliers as shown in all columns for example <em>Fresh</em> feature has an outlier with high value which is the max, Delicatessen also has an outlier point which is the max value of it.</li>
 <li>Yes, according to the heatmap and scatter plot, <ul>
 <li>(Grocery, Detergents_Paper) has correlation with 0.92</li>
 <li>(Grocery, Milk) has correlation with 0.73</li>
@@ -12366,7 +12408,7 @@ Delicatessen&#39;s score = -12.9718212452
 </ul>
 </li>
 <li>Yes, as <em>Fresh</em> feature has no strong correlation with any other feature so we cann't ignore it.</li>
-<li><strong>I don't understand what the last question means, please explain what the 'distributed' word means and if you can give me choices or examples to understand what I should answer here--</strong> The distribution isn't normal</li>
+<li>The distribution isn't normal and it is shown that they are positivly skewed</li>
 </ul>
 
 </div>
@@ -12574,10 +12616,6 @@ Delicatessen&#39;s score = -12.9718212452
     <span class="n">outliers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">outliers_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     
     
-<span class="c1"># OPTIONAL: Select the indices for data points you wish to remove</span>
-<span class="c1">#outliers  = []</span>
-<span class="c1">###### I couldn&#39;t find a line to got the indeces of outliers, please if you know how tell me</span>
-
 <span class="c1"># remove duplicates - optional</span>
 <span class="n">outliers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">outliers</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
@@ -13381,7 +13419,14 @@ Delicatessen&#39;s score = -12.9718212452
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Yes, data point number 154 in features <em>Delicatessen</em> , <em>Grocery</em> and <em>Milk</em></li>
+<li>Yes,<ul>
+<li>data point number 154 in features <em>Delicatessen</em> , <em>Grocery</em> and <em>Milk</em></li>
+<li>number 65 in <em>Fresh</em> and <em>Frozen</em></li>
+<li>number 66 in <em>Fresh</em> and <em>Delicatessen</em></li>
+<li>number 128 in <em>Fresh</em> and <em>Delicatessen</em></li>
+<li>number 75 in <em>Grocery</em> and _Detergents<em>Paper</em></li>
+</ul>
+</li>
 <li>In this problem It should be removed so this may affect the mean and standard deviation values, and also will affect kmeans clustering centers. But in some problems the outliers are our points of interest so we shouldn't remove them, for example in NASA application for finding the Ozone layer hole , you can read more about this <a href="https://robjhyndman.com/hyndsight/omitting-outliers/">here</a>.</li>
 <li>I removed all outliers as this will change the k clustering algorithm centers and will make them near to the outliers somehow.</li>
 </ul>
@@ -13472,54 +13517,24 @@ Delicatessen&#39;s score = -12.9718212452
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;explained variance for all dimensions: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>explained variance for all dimensions: [ 4.10320197  1.85680266  0.86191133  0.80384844  0.40095686  0.19110812]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>first component's var = 4.10320197 , second's var =  1.85680266</li>
-<li>the first four components var = 4.10320197  1.85680266  0.86191133  0.80384844</li>
-<li>Dimensions are ordered descently -i.e the first dim has the maximal variance which mean the minimal information loss. +ve means that the feature impact more on the pca while the -ve means that it has less impact:<ul>
-<li>Dim1: as shown in the plot <em>DetergentsPaper</em> , <em>Milk</em> ,<em>Delicatessen</em> and <em>Grocery</em> are well represented and have +ve sign while <em>Fresh</em> and <em>Frozen</em> have -ve signs.</li>
-<li>Dim2: <em>Fresh</em> , <em>Frozen</em> ,<em>Milk</em> , <em>Grocery</em> and <em>Delicatessen</em> are well represented while <em>DetergentsPaper</em> are not.</li>
-<li>Dim3: <em>Delicatessen</em> ,<em>Milk</em> and <em>Frozen</em> are well represented</li>
-<li>Dim4: <em>Delicatessen</em> ,<em>Milk</em> , <em>Grocery</em> and <em>Fresh</em> are well represented</li>
-<li>Dim5: <em>Milk</em> , <em>Frozen</em> and <em>Grocery</em> are well represented <em>Fresh</em> has impace but small</li>
-<li>Dim6: <em>Grocery</em> and <em>Frozen</em> are well represented</li>
+<li>first component's var = 0.4993, second's var =  0.2259</li>
+<li>the first four components var = 0.4993+0.2259+0.1049+0.0978 = 0.9279</li>
+<li>Dimensions are ordered descently -i.e the first dim has the maximal variance which mean the minimal information loss. The featurs with high magnitude -negative or positive- will impact on the pca more than the values closest to 0, so We will assume that we care for the valus above '0.4':<ul>
+<li>The first principal component is strongly correlated with <em>DetergentsPaper</em> , <em>Milk</em> and <em>Grocery</em> and will increase whith their increasing -as they all +ve.</li>
+<li>The second is strongly correlated with <em>Fresh</em> , <em>Frozen</em>  and <em>Delicatessen</em> and also will increase with their increasing.</li>
+<li>The third is strongly correlated with <em>Delicatessen</em> and <em>Frozen</em> and will increase with the increasing of <em>Delicatessen</em> or decreasing of <em>Fresh</em> as it has -ve sign.</li>
+<li>The fourth is strongly correlated with <em>Delicatessen</em> and <em>Frozen</em> and will increase with the increasing of <em>Delicatessen</em> or decreasing of <em>Frozen</em> as it has -ve sign.</li>
+<li>The fifth is strongly correlated with <em>Milk</em> , <em>Delicatessen</em> and <em>DetergentsPaper</em> and will increase with the increasing of <em>Milk</em> or decreasing of <em>Delicatessen</em> or <em>DetergentsPaper</em> as they have -ve sign.</li>
+<li>The sixth is very strongly correlated with <em>Grocery</em> and <em>Milk</em> and will increase with the increasing of <em>Grocery</em> or decreasing of <em>Milk</em> as it has -ve sign.</li>
 </ul>
 </li>
 </ul>
+<p><a href="https://onlinecourses.science.psu.edu/stat505/node/54">This article</a> helped me a lot.</p>
 
 </div>
 </div>
@@ -13767,7 +13782,7 @@ Delicatessen&#39;s score = -12.9718212452
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6f1e48c1d0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f14009b6a50&gt;</pre>
 </div>
 
 </div>
@@ -13833,7 +13848,7 @@ Delicatessen&#39;s score = -12.9718212452
 <li>more flexible in terms of cluster covariance</li>
 </ul>
 </li>
-<li>I will use K-Means as in our data we shouldn't classify a customer in 2 clusters, we need to classify each in only one cluster.</li>
+<li>I will use K-Means as in our data we shouldn't classify a single customer in 2 different clusters, we need to classify each in only one cluster which is done in K-Means clustering algorithm.</li>
 </ul>
 
 </div>
@@ -13859,7 +13874,7 @@ Delicatessen&#39;s score = -12.9718212452
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply your clustering algorithm of choice to the reduced data </span>
@@ -14079,7 +14094,7 @@ when i=9 , score=0.367312031027
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span>    <span class="c1">## choosing n_clusters = 2</span>
@@ -14102,7 +14117,7 @@ when i=9 , score=0.367312031027
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -14150,7 +14165,7 @@ when i=9 , score=0.367312031027
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -14277,7 +14292,7 @@ when i=9 , score=0.367312031027
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the predictions</span>
@@ -14437,6 +14452,7 @@ Samples original values are:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
+<li>We can divide the customer into 2 segments as shown, and we can differentiate between the 2 segments by looking for the products and if we found that <em>Milk</em>, <em>Grocery</em>, <em>DetergentsPaper</em>, and <em>Delicatessen</em> are above avg or close to it then we classify the customer in segment 1, else segment 0.</li>
 <li>The wholesale distributor can conclude that all cutomers in segment 0 are buying <em>Fresh</em> products a lot so they most probalby will give negative feedback as they will want their products to be <em>Fresh</em> as most as possible.</li>
 <li>The wholesale distributor also may test the change on some customers of different segments and measure in which segment the negative and the positive feedback came.</li>
 </ul>
@@ -14477,7 +14493,7 @@ Samples original values are:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
