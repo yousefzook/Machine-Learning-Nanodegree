@@ -1,5 +1,7 @@
 # Content: Unsupervised Learning
 ## Project: Creating Customer Segments
+### Questions and getting started:
+[Udacity - finding donors project](https://github.com/udacity/machine-learning/tree/master/projects/customer_segments)
 
 ### Install
 
