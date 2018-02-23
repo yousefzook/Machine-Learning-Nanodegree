@@ -1,6 +1,8 @@
 # Machine Learning Engineer Nanodegree
 # Reinforcement Learning
 ## Project: Train a Smartcab How to Drive
+### Questions and getting started:
+[Udacity - finding donors project](https://github.com/udacity/machine-learning/tree/master/projects/smartcab)
 
 ### Install
 
