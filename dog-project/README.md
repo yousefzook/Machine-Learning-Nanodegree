@@ -7,7 +7,7 @@
 # Content: Deep Learning
 ## Project: Dog breeds classification
 ### Questions and getting started:
-[Udacity - finding donors project](https://github.com/udacity/dog-project)
+[Udacity - Dog breeds project](https://github.com/udacity/dog-project)
 
 ## Project Overview
 
