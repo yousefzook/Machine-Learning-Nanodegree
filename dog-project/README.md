@@ -4,6 +4,10 @@
 [image2]: ./images/vgg16_model.png "VGG-16 Model Keras Layers"
 [image3]: ./images/vgg16_model_draw.png "VGG16 Model Figure"
 
+# Content: Deep Learning
+## Project: Dog breeds classification
+### Questions and getting started:
+[Udacity - finding donors project](https://github.com/udacity/dog-project)
 
 ## Project Overview
 
